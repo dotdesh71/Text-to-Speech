@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" crossorigin="anonymous">
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-1 has-text-centered">Text to Speech</h1>
+        <hr>
+        <div class="field">
+          <label class="label">Enter text to convert to speech</label>
+          <div class="control">
+            <textarea class="textarea" id="textInput"></textarea>
+          </div>
+        </div>
+        <br>
+        <div class="field has-text-centered">
+          <button class="button is-primary" id="speakBtn">Speak</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      const speakBtn = document.getElementById("speakBtn");
+      const textInput = document.getElementById("textInput");
+
+      speakBtn.addEventListener("click", function () {
+        const speech = new SpeechSynthesisUtterance(textInput.value);
+        window.speechSynthesis.speak(speech);
+      });
+    </script>
+  </body>
+</html>
